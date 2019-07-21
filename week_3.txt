@@ -1,0 +1,66 @@
+Question 4 assignment 1.
+Add up all parts divide by 2 and that's the sum.
+Think of it as a pie. The sum has to be half the pie since it's equal to the sum of the rest.
+
+[4,1,2,4,2,1,3,4]
+Window segment of 4 [4,1,2,4]
+Expected [3,3,3,4,4]
+The count of the numbers in the array, ignoring the dupes. So just the unique elements.
+Slide window down to one index, then count the number of unique elements.
+Return an array with the count of unique elements in each window.
+
+Use a dict/hash map to keep track of key(index value) and value(amount of times it appears).
+Continue up to size k(window size)
+When moving the window to the next section, decriment the value of the key not in the window.
+
+O(n+k)
+
+Stacks using an array - LIFO
+-push and pop
+s = new Stack() - creates new stack
+s.push("") - adds item to stack
+
+t = 0 (tail)
+def push(data):
+    #If tail is at the end of the array, grow array to create more space.
+    if (t == len(arr)):
+        grow_array
+
+    #Push data to empty index, them increment tail to next emtpy index.
+    arr[t++] = data
+
+def pop():
+    if (t == 0):
+        raise Exception("No data to retrieve")
+    
+    #decriment first and store element in variable to return. Since tail is poitning at next empty space.
+    d = arr[--t]
+    #Nullify index that you are popping.
+    arr[t] = None
+    return d
+
+Dictionary - Use if your intention is to look up something by the key. A lookup is O(1). A dictionary uses 2 arrays to keep track or items.
+
+d = new Dict{string: []}
+d.add("Collection", [...])
+
+When you creat a new dict 2 arrays are created. They are size 3 to start.
+int[] buckets   [0,1,2] - Initializes with -1 in every index meaning every spot is availible.
+entry[] entries [0,1,2] - each entry contains key, value, hash and next. This is where data is stored.
+
+When you call upon add for a dictionary this is what happend.
+1. Hash function is called on the key. Creates a integer hash from the key. (int are 4 gigs in size -2 to 31 power to 2 to 31 power)
+2. Abs value of step 1 (Creates a positive number) Now down to 2 gigs because half the numbers were negative.
+3. Step 2 % arr.length. The result of a mod function can never be more than the denominator.
+
+free_entry = 0 (Keeps track of which index in the entry bucket is open. Also tell you when you need to grow the array.)
+k: Collection
+v: [...]
+h: Step 1
+n: -1 (whatever is in index 1 of bucket which is -1.)
+
+bucket index value gets changed to free entry number pointing to the proper index in the entry array.
+If you reach a next of -1  that means data not found.
+Since you're using prime numbers for dictionary array sizes. This means only 19% of your step 3 will be duplicates.
+When you grow the array, you copy over all the entries over to the new array. Then you need to rehash each entry to update the bucket and next pointer.
+https://referencesource.microsoft.com/#mscorlib/system/collections/generic/dictionary.cs,d3599058f8d79be0
