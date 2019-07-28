@@ -1,0 +1,86 @@
+Reverse Int 123 -> 321
+123 % 10 = 3
+123 / 10 = 12
+def Reverse(n):
+    if (n is single digits even negatives):
+        return n
+    var r = 0
+    while(n!= 0):
+        r = (r*10)+(n%10)
+        n/=10
+    
+    return n
+
+Strings
+- Immutable, once a string is created it cannot be changed.
+- An array of characters [H,E,L,L,O]
+- When edited a new array is created with the edited string, and the old one is set for garbage collection.
+- Can look up letter by index, but unable to alter it because of immutability.
+- Flyweight design pattern is used by strings
+- Used for memory optimization.
+- All strings are saved in a hash table. Every iteration of that exact word is pointed to the same block of memory. That's why you cannot alter letters in a string array.
+- For string questions. Determine if the string needs to be altered or read.
+
+Reverse string
+- Concat is very un-performant. Every letter you concat, you need to create a new string.
+- If string manipulation is required, transform into array first.
+
+#Reverse string by swapping letters on both ends.
+def Reverse(s):
+    #Left and right pointers
+    l = 0
+    r = 0
+    #Convert string to an array.
+    c = s.ToCharArray
+
+    while(l < r):
+        swap([l], (r))
+        l++
+        r--
+    
+    return string
+
+Homework
+"123" -> 123
+Given a number string convert it to a number
+
+Given 2 strings. Return if the strings are permutations of each other.
+"cat" "act"
+- First check length.
+- Use a dictionary.
+- Go through string A and count letters.
+- Go through string B.
+- If a character doesn't exist when going through string B, exit.
+- If count is negative, exit.
+- If you get to the end of string B, return true.
+
+Dynamic programming
+Keeping track of your steps to be able to back track to find the right answer.
+
+- Find the path to spell out AMAZON
+- There are several paths that lead to dead ends. Instead of starting back at the start, just go back a step to try and find the right path. Then back again until the right path is found.
+[A][X][Z]
+[X][M][A]
+[A][X][O]
+[X][Z][N]
+
+Recursion
+- It's expensive due to call stack having to grow with each additional call.
+- Use iteration if possible. Because the loop calls itself without having to grow in call stack memory.
+- Put your exit case at the top to prevent stack overflow.
+- Track all the call stacks and line numbers by drawing it out.
+
+def Fib(n):
+    if (n == 0 | n == 1):
+        return n
+
+    return Fib(n-1) + Fib(n-2)
+
+def Fib(n):
+    arr[n]
+    arr[0] = 0
+    arr[1] = 1
+    for (i = 2; i < n; i++):
+        arr[i] = arr[i-1]+arr[i-2]
+
+    return arr[n]
