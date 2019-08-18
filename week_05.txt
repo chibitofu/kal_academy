@@ -1,0 +1,27 @@
+Dynamic programming
+Longest Common Subsequence
+(read the wiki article)
+AGCAT GAC
+If character is not the same, you look at top and left, then fill in the max value into that cell.
+If the character is the same, look diagnol and add 1.
+Uses iteration to create matrix. Then recursion to backtrack through matrix to give answer.
+
+Edit Distance
+How dissimilar 2 string are by counting the minimum number of operations required to transform one string into the other.
+Kitten -> Sitting
+2 + 2 + 1
+Remove + Add = Replace
+You just look left and top because you don't need to backtrack.
+Look left and top, if theres a match, pick the max, add 1.
+
+    0   K   I   T   T   E   N
+0   0   0   0   0   0   0   0
+S   0   0   0   0   0   0   0
+I   0   0   1   1   1   1   1
+T   0   0   1   2   3   3   3
+T   0   0   1   3   4   4   4
+I   0   0   2   3   4   4   5
+N   0   0   2   3   4   4   5
+G   0   0   2   3   4   4   5
+
+Takes 5 operations to transform word.

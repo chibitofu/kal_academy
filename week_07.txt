@@ -1,0 +1,46 @@
+Linked List
+
+Return Kth node to the last
+h > a > b > c > d > e > f
+k = 3
+Challenges - You don't know what the last is.
+Create 2 pointers. One pointer at start another k distance ahead.
+Then move then together till the second pointer hits the end.
+
+h > a > b > c > d > e > 
+             < f
+Tell if this linked list is circular.
+Slow and fast. First pointer(slow) moves 1 space and second pointer(fast) moves 2.
+If fast hits null it is not circular.
+If slow meets fast, then it's circular.
+
+Determine where the linked list loops meet(c)
+
+Move slow back to the head.
+Move slow one step.
+Move fast one step.
+Distance from head to meet point  = x
+y = distance from meet point to where slow and fast met.
+z = where slow and fast met to the meet point.
+
+ds = x + y
+df = x + 2y + z
+This means df = 2(ds)
+
+h > a > b > c > d
+Given a linked list with next node and random node pointer, clone the linekd list.
+Challenges - Random node pointer makes it hard to clone. Because it's pointing to a specific node. So how do you point it to your cloned linked list node.
+Use a hashmap to keep track of the original node and the cloned node.
+
+Now solve without using extra space.
+loop 1 - Instead of storing it in a hashmap, store it in the original linked list.
+a > a1 > b > b1 > c > c1 > d > d1
+loop 2 - Every randoms next is now the clones next. So a1 random is a's random next pointer.
+loop 3 - unlink the 2 lists. Don't forget to create new head for cloned linked list.
+
+l1 = 5 > 10 > 15 > 25
+l2 = 7 > 9 > 20
+Sort the 2 linked lists together and return each linked list with the original size.
+l1 = 5 > 7 > 9 > 10
+l2 = 15 > 20 > 25
+compare l1 and l2, if you swap l1 with l2, then use bubble sort(compare neighbors) on l2 to make usre l2 is still sorted.
