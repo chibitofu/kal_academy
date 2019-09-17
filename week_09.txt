@@ -1,0 +1,57 @@
+Week 09
+Heap
+It is a tree
+It's complete
+Can choose min heap or max heap
+min = parent must be less than it's children (top of the tree will be the smallest element)
+max = parent must be greater than it's children (bottom of the tree will be the smallest element)
+
+Top of the tree is called a root node.
+
+Heap sort - You only have to compare one side of a tree.
+First pass just finds biggest element and puts it at the top (max)
+Heap sort uses an array instead of creating a tree.
+l = 2i + 1 (left child) i = (l - 1) / 2
+r = 2i + 2 (right child) i = (r - 2) / 2
+i = parent
+left index is always even.
+right index is always odd.
+You only compare to the last element moved to the back. Since you know it's already the largest.
+Heap sort isn't used as much because it's concidered unstable due to all the writing that has to be done.
+If you need to find only a certain amount of max or min numbers then it's klogn instead of nlogn of quicksort.
+
+Given an array of any amount of 0,1,2 unordered.
+1,1,2,0,1,1,2,0,1,0,1
+3 pivot points l(low),m(mid),h(high)
+low marks the element right before the last lowest element.
+mid looks for a 0 or 2 and swaps depending which it finds or just continues if it's a 1.
+high decrements if it's a 2 and swaps with mid if it's not a 2.
+if mid gets high gets swapped with mid, mid checks to see if it's a 1 or 0 and acts accordingly.
+when your mid meets high you are done.
+
+Binary search tree.
+every node should have no more than 2 children
+It should be balanced
+logn
+
+tree
+root node
+data
+left node, right node
+
+BST traversal
+depth first - pre-order, in-order, post-order
+use recursion
+
+PreOrder(c)
+    if (c == null)
+        return
+    
+    print (c data)
+    PreOrder(c left)
+    PreOrder(c right)
+
+pre-order = d,l,r
+in-order = l,d,r
+post-order = l,r,d
+decrement-order = r,d,l
